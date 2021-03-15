@@ -33,7 +33,7 @@ function Pomodoro() {
           if (timerSets.focusSeconds > 0) {
             return { ...timerSets, focusSeconds: timerSets.focusSeconds - 1 };
           } else {
-            Audio("/alarm-clock-buzzer-beeps.mp3") 
+           new Audio("https://bigsoundbank.com/UPLOAD/mp3/1373.mp3").play();
             return {
               ...timerSets,
               focusSeconds: timerSets.focusBase * 60,
@@ -44,7 +44,7 @@ function Pomodoro() {
           if (timerSets.breakSeconds > 0) {
             return { ...timerSets, breakSeconds: timerSets.breakSeconds - 1 };
           } else {
-            Audio("/alarm-clock-buzzer-beeps.mp3") 
+           new Audio("https://bigsoundbank.com/UPLOAD/mp3/1373.mp3").play();
             return {
               ...timerSets,
               breakSeconds: timerSets.breakBase * 60,
@@ -60,8 +60,9 @@ function Pomodoro() {
   function playPause() {
     setIsTimerRunning((prevState) => !prevState);
 
-    setTimerSets({ ...timerSets, isEnabled: true });
-  }
+    setTimerSets ((newTimer) => 
+      {return {...newTimer, isEnabled: true };
+  })}
 
   return (
     <div className="pomodoro">

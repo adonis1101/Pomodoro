@@ -14,12 +14,12 @@ function StopButton({
     console.log("sanity");
     if (isTimerRunning) playPause();
     console.log("sanity 2");
-    setTimerSets({
-      ...timerSets,
+    setTimerSets ((newTimer) => 
+      {return {...newTimer,
       focusSeconds: timerSets.focusBase * 60,
       breakSeconds: timerSets.breakBase * 60,
       isFocus: true,
-      isEnabled: false,
+      isEnabled: false,}
     });
   };
 

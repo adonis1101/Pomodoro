@@ -36,8 +36,7 @@ function ButtonHandler({
     timerSets.breakSeconds = timerSets.breakBase * 60;
   }
 
-  setTimerSets({ ...timerSets });
-};
+  setTimerSets((newTimer) => {return { ...newTimer };})};
 
 
 if (timerSets.isEnabled) {
